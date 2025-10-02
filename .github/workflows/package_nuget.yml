@@ -1,4 +1,4 @@
-name: Actividad02 - PackageNugets
+name: Actividad02 - PackageNugetss
 
 env:
   DOTNET_VERSION: '8.0'
@@ -73,8 +73,8 @@ jobs:
 
       - name: Push nuget package to GitHub Packages (CustomerApp.Domain)
         run: |
-          dotnet nuget push CustomerApp/CustomerApp.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+          dotnet nuget push CustomerApp/CustomerApp.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Push nuget package to GitHub Packages (Notifications.Domain)
         run: |
-          dotnet nuget push Notifications/Notifications.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+          dotnet nuget push Notifications/Notifications.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
