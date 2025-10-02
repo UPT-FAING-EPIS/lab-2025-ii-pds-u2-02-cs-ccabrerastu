@@ -3,13 +3,16 @@ name: Actividad02 - PackageNugets
 env:
   DOTNET_VERSION: '8.0'
 
-on: push
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
 
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
@@ -21,20 +24,49 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Restore dependencies
+      - name: Restore and Build
         run: |
           dotnet restore CustomerApp/CustomerApp.sln
           dotnet restore Notifications/Notifications.sln
-
-      - name: Build solutions
-        run: |
           dotnet build CustomerApp/CustomerApp.sln --configuration Release --no-restore
           dotnet build Notifications/Notifications.sln --configuration Release --no-restore
 
-      - name: Run unit tests
+      - name: Run tests
         run: |
           dotnet test CustomerApp/CustomerApp.Domain.Tests/CustomerApp.Domain.Tests.csproj --configuration Release --logger trx --results-directory CustomerApp/TestResults --no-build
           dotnet test Notifications/Notifications.Domain.Tests/Notifications.Domain.Tests.csproj --configuration Release --logger trx --results-directory Notifications/TestResults --no-build
+
+      - name: Determine package version
+        id: version
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            # Si es un tag, usar la versión del tag
+            VERSION="${GITHUB_REF#refs/tags/v}"
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "is_tag=true" >> $GITHUB_OUTPUT
+          else
+            # Si es branch, usar versión con build number
+            VERSION="3.0.0.${{ github.run_number }}"
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "is_tag=false" >> $GITHUB_OUTPUT
+          fi
+          echo "Using version: $VERSION"
+
+      - name: Pack nuget packages
+        run: |
+          mkdir -p nuget-packages
+          
+          dotnet pack CustomerApp/CustomerApp.Domain/CustomerApp.Domain.csproj \
+            -c Release \
+            -p:PackageVersion=${{ steps.version.outputs.version }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            --output ./nuget-packages
+
+          dotnet pack Notifications/Notifications.Domain/Notifications.Domain.csproj \
+            -c Release \
+            -p:PackageVersion=${{ steps.version.outputs.version }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            --output ./nuget-packages
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -54,38 +86,19 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Pack nuget packages
-        run: |
-          mkdir -p nuget-packages
-          
-          dotnet pack CustomerApp/CustomerApp.Domain/CustomerApp.Domain.csproj \
-            -c Release \
-            -p:PackageVersion=2025.1001.${{ github.run_number }} \
-            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
-            -p:RepositoryType=git \
-            --output ./nuget-packages
-
-          dotnet pack Notifications/Notifications.Domain/Notifications.Domain.csproj \
-            -c Release \
-            -p:PackageVersion=2025.1001.${{ github.run_number }} \
-            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
-            -p:RepositoryType=git \
-            --output ./nuget-packages
-
-      - name: Configure GitHub NuGet Source
-        run: |
-          dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
-            --name github \
-            --username ${{ github.actor }} \
-            --password ${{ secrets.GITHUB_TOKEN }} \
-            --store-password-in-clear-text
-
-      - name: List NuGet sources (debug)
-        run: dotnet nuget list source
-
       - name: Push to GitHub Packages
+        if: steps.version.outputs.is_tag == 'false'
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "Subiendo a GitHub Packages (desarrollo)"
           dotnet nuget push ./nuget-packages/*.nupkg \
-            --source "github" \
-            --skip-duplicate \
-            --api-key ${{ secrets.GITHUB_TOKEN }}
+            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            --skip-duplicate
+
+      - name: Create GitHub Release
+        if: steps.version.outputs.is_tag == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: nuget-packages/*.nupkg
+          generate_release_notes: true
