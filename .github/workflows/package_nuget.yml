@@ -1,16 +1,17 @@
-name: Actividad03 - ReleaseVersion
+name: Actividad02 - PackageNuget
 
 env:
   DOTNET_VERSION: '8.0'
 
-on:
-  push:
-    tags:
-      - 'v*' # Solo cuando se crean tags de versión
+on: push
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,44 +21,60 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Extract version from tag
-        id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-
-      - name: Build CustomerApp
+      - name: Restore dependencies & Build solutions
         run: |
           dotnet restore CustomerApp/CustomerApp.sln
-          dotnet build CustomerApp/CustomerApp.sln --configuration Release --no-restore
-
-      - name: Build Notifications
-        run: |
           dotnet restore Notifications/Notifications.sln
-          dotnet build Notifications/Notifications.sln --configuration Release --no-restore
+          dotnet build CustomerApp/CustomerApp.sln --configuration Release
+          dotnet build Notifications/Notifications.sln --configuration Release
 
-      - name: Run unit tests CustomerApp
+      - name: Run unit tests and collect results (CustomerApp)
         run: |
-          dotnet test CustomerApp/CustomerApp.Domain.Tests/CustomerApp.Domain.Tests.csproj --configuration Release --no-build
+          dotnet test CustomerApp/CustomerApp.Domain.Tests/CustomerApp.Domain.Tests.csproj --configuration Release --logger trx --results-directory CustomerApp/TestResults
 
-      - name: Run unit tests Notifications
+      - name: Run unit tests and collect results (Notifications)
         run: |
-          dotnet test Notifications/Notifications.Domain.Tests/Notifications.Domain.Tests.csproj --configuration Release --no-build
+          dotnet test Notifications/Notifications.Domain.Tests/Notifications.Domain.Tests.csproj --configuration Release --logger trx --results-directory Notifications/TestResults
 
-      - name: Pack CustomerApp.Domain
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            CustomerApp/TestResults
+            Notifications/TestResults
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Pack nuget package (CustomerApp.Domain)
         run: |
           dotnet pack CustomerApp/CustomerApp.Domain/CustomerApp.Domain.csproj -c Release \
-            --no-build \
-            -p:PackageVersion=${{ steps.get_version.outputs.VERSION }} \
-            -o ./artifacts
+            -p:PackageVersion=2025.1001.${{ github.run_number }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            -p:RepositoryType=git
 
-      - name: Pack Notifications.Domain
+      - name: Pack nuget package (Notifications.Domain)
         run: |
           dotnet pack Notifications/Notifications.Domain/Notifications.Domain.csproj -c Release \
-            --no-build \
-            -p:PackageVersion=${{ steps.get_version.outputs.VERSION }} \
-            -o ./artifacts
+            -p:PackageVersion=2025.1001.${{ github.run_number }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            -p:RepositoryType=git
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: "artifacts/*.nupkg"
-          generate_release_notes: true
+      - name: nuget sources
+        run: dotnet nuget list source
+
+      - name: Push nuget package to GitHub Packages (CustomerApp.Domain)
+        run: |
+          dotnet nuget push CustomerApp/CustomerApp.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push nuget package to GitHub Packages (Notifications.Domain)
+        run: |
+          dotnet nuget push Notifications/Notifications.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
