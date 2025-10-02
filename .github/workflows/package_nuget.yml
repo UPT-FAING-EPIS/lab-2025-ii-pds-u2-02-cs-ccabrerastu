@@ -1,18 +1,15 @@
-name: Actividad02 - PackageNugets
+name: Actividad02 - PackageNuget
 
 env:
   DOTNET_VERSION: '8.0'
 
-on:
-  push:
-    branches: [ main ]
-    tags: [ 'v*' ]
+on: push
 
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
 
     steps:
@@ -24,49 +21,20 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Restore and Build
+      - name: Restore dependencies & Build solutions
         run: |
           dotnet restore CustomerApp/CustomerApp.sln
           dotnet restore Notifications/Notifications.sln
-          dotnet build CustomerApp/CustomerApp.sln --configuration Release --no-restore
-          dotnet build Notifications/Notifications.sln --configuration Release --no-restore
+          dotnet build CustomerApp/CustomerApp.sln --configuration Release
+          dotnet build Notifications/Notifications.sln --configuration Release
 
-      - name: Run tests
+      - name: Run unit tests and collect results (CustomerApp)
         run: |
-          dotnet test CustomerApp/CustomerApp.Domain.Tests/CustomerApp.Domain.Tests.csproj --configuration Release --logger trx --results-directory CustomerApp/TestResults --no-build
-          dotnet test Notifications/Notifications.Domain.Tests/Notifications.Domain.Tests.csproj --configuration Release --logger trx --results-directory Notifications/TestResults --no-build
+          dotnet test CustomerApp/CustomerApp.Domain.Tests/CustomerApp.Domain.Tests.csproj --configuration Release --logger trx --results-directory CustomerApp/TestResults
 
-      - name: Determine package version
-        id: version
+      - name: Run unit tests and collect results (Notifications)
         run: |
-          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            # Si es un tag, usar la versión del tag
-            VERSION="${GITHUB_REF#refs/tags/v}"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
-            echo "is_tag=true" >> $GITHUB_OUTPUT
-          else
-            # Si es branch, usar versión con build number
-            VERSION="3.0.0.${{ github.run_number }}"
-            echo "version=$VERSION" >> $GITHUB_OUTPUT
-            echo "is_tag=false" >> $GITHUB_OUTPUT
-          fi
-          echo "Using version: $VERSION"
-
-      - name: Pack nuget packages
-        run: |
-          mkdir -p nuget-packages
-          
-          dotnet pack CustomerApp/CustomerApp.Domain/CustomerApp.Domain.csproj \
-            -c Release \
-            -p:PackageVersion=${{ steps.version.outputs.version }} \
-            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
-            --output ./nuget-packages
-
-          dotnet pack Notifications/Notifications.Domain/Notifications.Domain.csproj \
-            -c Release \
-            -p:PackageVersion=${{ steps.version.outputs.version }} \
-            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
-            --output ./nuget-packages
+          dotnet test Notifications/Notifications.Domain.Tests/Notifications.Domain.Tests.csproj --configuration Release --logger trx --results-directory Notifications/TestResults
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -86,19 +54,27 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Push to GitHub Packages
-        if: steps.version.outputs.is_tag == 'false'
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Pack nuget package (CustomerApp.Domain)
         run: |
-          echo "Subiendo a GitHub Packages (desarrollo)"
-          dotnet nuget push ./nuget-packages/*.nupkg \
-            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
-            --skip-duplicate
+          dotnet pack CustomerApp/CustomerApp.Domain/CustomerApp.Domain.csproj -c Release \
+            -p:PackageVersion=2025.1001.${{ github.run_number }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            -p:RepositoryType=git
 
-      - name: Create GitHub Release
-        if: steps.version.outputs.is_tag == 'true'
-        uses: softprops/action-gh-release@v1
-        with:
-          files: nuget-packages/*.nupkg
-          generate_release_notes: true
+      - name: Pack nuget package (Notifications.Domain)
+        run: |
+          dotnet pack Notifications/Notifications.Domain/Notifications.Domain.csproj -c Release \
+            -p:PackageVersion=2025.1001.${{ github.run_number }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            -p:RepositoryType=git
+
+      - name: nuget sources
+        run: dotnet nuget list source
+
+      - name: Push nuget package to GitHub Packages (CustomerApp.Domain)
+        run: |
+          dotnet nuget push CustomerApp/CustomerApp.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push nuget package to GitHub Packages (Notifications.Domain)
+        run: |
+          dotnet nuget push Notifications/Notifications.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
