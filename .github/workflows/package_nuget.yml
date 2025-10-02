@@ -1,4 +1,4 @@
-name: Actividad02 - PackageNuget
+name: Actividad02 - PackageNugets
 
 env:
   DOTNET_VERSION: '8.0'
