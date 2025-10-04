@@ -2,10 +2,19 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+# Bienvenido a la documentación del repositorio
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+Este sitio contiene la documentación técnica y de pruebas de los proyectos:
 
-## Quick Start Notes:
+- **CustomerApp**: Gestión y registro de clientes.
+- **Notifications**: Envío de mensajes por Email y SMS.
 
-1. Add images to the *images* folder if the file is referencing an image.
+## CustomerApp
+
+- [Diagrama de Clases CustomerApp](CustomerApp/disenio.md)
+- [API CustomerApp](api/CustomerApp.Domain/CustomerApp.Domain.html)
+
+## Notifications
+
+- [Diagrama de Clases Notifications](Notifications/disenio.md)
+- [API Notifications](api/Notifications.Domain/Notifications.Domain.html)
