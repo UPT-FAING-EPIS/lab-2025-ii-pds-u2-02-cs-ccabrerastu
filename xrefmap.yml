@@ -3,32 +3,32 @@ sorted: true
 references:
 - uid: CustomerApp.Domain
   name: CustomerApp.Domain
-  href: api/CustomerApp.Domain/CustomerApp.Domain.html
+  href: api/CustomerApp.Domain/CustomerApp.Domain.yml
   commentId: N:CustomerApp.Domain
   fullName: CustomerApp.Domain
   nameWithType: CustomerApp.Domain
 - uid: CustomerApp.Domain.Customer
   name: Customer
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: T:CustomerApp.Domain.Customer
   fullName: CustomerApp.Domain.Customer
   nameWithType: Customer
 - uid: CustomerApp.Domain.Customer.Address
   name: Address
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Address
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: P:CustomerApp.Domain.Customer.Address
   fullName: CustomerApp.Domain.Customer.Address
   nameWithType: Customer.Address
 - uid: CustomerApp.Domain.Customer.Address*
   name: Address
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Address_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.Address
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.Address
   nameWithType: Customer.Address
 - uid: CustomerApp.Domain.Customer.Create(System.String,System.String,System.String,System.String,System.String)
   name: Create(string, string, string, string, string)
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Create_System_String_System_String_System_String_System_String_System_String_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: M:CustomerApp.Domain.Customer.Create(System.String,System.String,System.String,System.String,System.String)
   name.vb: Create(String, String, String, String, String)
   fullName: CustomerApp.Domain.Customer.Create(string, string, string, string, string)
@@ -37,72 +37,72 @@ references:
   nameWithType.vb: Customer.Create(String, String, String, String, String)
 - uid: CustomerApp.Domain.Customer.Create*
   name: Create
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Create_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.Create
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.Create
   nameWithType: Customer.Create
 - uid: CustomerApp.Domain.Customer.Email
   name: Email
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Email
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: P:CustomerApp.Domain.Customer.Email
   fullName: CustomerApp.Domain.Customer.Email
   nameWithType: Customer.Email
 - uid: CustomerApp.Domain.Customer.Email*
   name: Email
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Email_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.Email
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.Email
   nameWithType: Customer.Email
 - uid: CustomerApp.Domain.Customer.MobileNumber
   name: MobileNumber
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_MobileNumber
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: P:CustomerApp.Domain.Customer.MobileNumber
   fullName: CustomerApp.Domain.Customer.MobileNumber
   nameWithType: Customer.MobileNumber
 - uid: CustomerApp.Domain.Customer.MobileNumber*
   name: MobileNumber
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_MobileNumber_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.MobileNumber
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.MobileNumber
   nameWithType: Customer.MobileNumber
 - uid: CustomerApp.Domain.Customer.Name
   name: Name
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Name
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: P:CustomerApp.Domain.Customer.Name
   fullName: CustomerApp.Domain.Customer.Name
   nameWithType: Customer.Name
 - uid: CustomerApp.Domain.Customer.Name*
   name: Name
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Name_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.Name
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.Name
   nameWithType: Customer.Name
 - uid: CustomerApp.Domain.Customer.Password
   name: Password
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Password
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: P:CustomerApp.Domain.Customer.Password
   fullName: CustomerApp.Domain.Customer.Password
   nameWithType: Customer.Password
 - uid: CustomerApp.Domain.Customer.Password*
   name: Password
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.html#CustomerApp_Domain_Customer_Password_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Customer.yml
   commentId: Overload:CustomerApp.Domain.Customer.Password
   isSpec: "True"
   fullName: CustomerApp.Domain.Customer.Password
   nameWithType: Customer.Password
 - uid: CustomerApp.Domain.DataAccessLayer
   name: DataAccessLayer
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: T:CustomerApp.Domain.DataAccessLayer
   fullName: CustomerApp.Domain.DataAccessLayer
   nameWithType: DataAccessLayer
 - uid: CustomerApp.Domain.DataAccessLayer.#ctor
   name: DataAccessLayer()
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer__ctor
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: M:CustomerApp.Domain.DataAccessLayer.#ctor
   name.vb: New()
   fullName: CustomerApp.Domain.DataAccessLayer.DataAccessLayer()
@@ -111,7 +111,7 @@ references:
   nameWithType.vb: DataAccessLayer.New()
 - uid: CustomerApp.Domain.DataAccessLayer.#ctor*
   name: DataAccessLayer
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer__ctor_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: Overload:CustomerApp.Domain.DataAccessLayer.#ctor
   isSpec: "True"
   name.vb: New
@@ -121,83 +121,83 @@ references:
   nameWithType.vb: DataAccessLayer.New
 - uid: CustomerApp.Domain.DataAccessLayer.Customers
   name: Customers
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer_Customers
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: P:CustomerApp.Domain.DataAccessLayer.Customers
   fullName: CustomerApp.Domain.DataAccessLayer.Customers
   nameWithType: DataAccessLayer.Customers
 - uid: CustomerApp.Domain.DataAccessLayer.Customers*
   name: Customers
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer_Customers_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: Overload:CustomerApp.Domain.DataAccessLayer.Customers
   isSpec: "True"
   fullName: CustomerApp.Domain.DataAccessLayer.Customers
   nameWithType: DataAccessLayer.Customers
 - uid: CustomerApp.Domain.DataAccessLayer.SaveCustomer(CustomerApp.Domain.Customer)
   name: SaveCustomer(Customer)
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer_SaveCustomer_CustomerApp_Domain_Customer_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: M:CustomerApp.Domain.DataAccessLayer.SaveCustomer(CustomerApp.Domain.Customer)
   fullName: CustomerApp.Domain.DataAccessLayer.SaveCustomer(CustomerApp.Domain.Customer)
   nameWithType: DataAccessLayer.SaveCustomer(Customer)
 - uid: CustomerApp.Domain.DataAccessLayer.SaveCustomer*
   name: SaveCustomer
-  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.html#CustomerApp_Domain_DataAccessLayer_SaveCustomer_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.DataAccessLayer.yml
   commentId: Overload:CustomerApp.Domain.DataAccessLayer.SaveCustomer
   isSpec: "True"
   fullName: CustomerApp.Domain.DataAccessLayer.SaveCustomer
   nameWithType: DataAccessLayer.SaveCustomer
 - uid: CustomerApp.Domain.EmailService
   name: EmailService
-  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.html
+  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.yml
   commentId: T:CustomerApp.Domain.EmailService
   fullName: CustomerApp.Domain.EmailService
   nameWithType: EmailService
 - uid: CustomerApp.Domain.EmailService.SendRegistrationEmail(CustomerApp.Domain.Customer)
   name: SendRegistrationEmail(Customer)
-  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.html#CustomerApp_Domain_EmailService_SendRegistrationEmail_CustomerApp_Domain_Customer_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.yml
   commentId: M:CustomerApp.Domain.EmailService.SendRegistrationEmail(CustomerApp.Domain.Customer)
   fullName: CustomerApp.Domain.EmailService.SendRegistrationEmail(CustomerApp.Domain.Customer)
   nameWithType: EmailService.SendRegistrationEmail(Customer)
 - uid: CustomerApp.Domain.EmailService.SendRegistrationEmail*
   name: SendRegistrationEmail
-  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.html#CustomerApp_Domain_EmailService_SendRegistrationEmail_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.EmailService.yml
   commentId: Overload:CustomerApp.Domain.EmailService.SendRegistrationEmail
   isSpec: "True"
   fullName: CustomerApp.Domain.EmailService.SendRegistrationEmail
   nameWithType: EmailService.SendRegistrationEmail
 - uid: CustomerApp.Domain.Validator
   name: Validator
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.html
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.yml
   commentId: T:CustomerApp.Domain.Validator
   fullName: CustomerApp.Domain.Validator
   nameWithType: Validator
 - uid: CustomerApp.Domain.Validator.ValidateCustomer(CustomerApp.Domain.Customer)
   name: ValidateCustomer(Customer)
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.html#CustomerApp_Domain_Validator_ValidateCustomer_CustomerApp_Domain_Customer_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.yml
   commentId: M:CustomerApp.Domain.Validator.ValidateCustomer(CustomerApp.Domain.Customer)
   fullName: CustomerApp.Domain.Validator.ValidateCustomer(CustomerApp.Domain.Customer)
   nameWithType: Validator.ValidateCustomer(Customer)
 - uid: CustomerApp.Domain.Validator.ValidateCustomer*
   name: ValidateCustomer
-  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.html#CustomerApp_Domain_Validator_ValidateCustomer_
+  href: api/CustomerApp.Domain/CustomerApp.Domain.Validator.yml
   commentId: Overload:CustomerApp.Domain.Validator.ValidateCustomer
   isSpec: "True"
   fullName: CustomerApp.Domain.Validator.ValidateCustomer
   nameWithType: Validator.ValidateCustomer
 - uid: Notifications.Domain
   name: Notifications.Domain
-  href: api/Notifications.Domain/Notifications.Domain.html
+  href: api/Notifications.Domain/Notifications.Domain.yml
   commentId: N:Notifications.Domain
   fullName: Notifications.Domain
   nameWithType: Notifications.Domain
 - uid: Notifications.Domain.AbstractMessage
   name: AbstractMessage
-  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.html
+  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.yml
   commentId: T:Notifications.Domain.AbstractMessage
   fullName: Notifications.Domain.AbstractMessage
   nameWithType: AbstractMessage
 - uid: Notifications.Domain.AbstractMessage.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.html#Notifications_Domain_AbstractMessage_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.yml
   commentId: M:Notifications.Domain.AbstractMessage.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.AbstractMessage.SendMessage(string)
@@ -206,26 +206,26 @@ references:
   nameWithType.vb: AbstractMessage.SendMessage(String)
 - uid: Notifications.Domain.AbstractMessage.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.html#Notifications_Domain_AbstractMessage_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.yml
   commentId: Overload:Notifications.Domain.AbstractMessage.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.AbstractMessage.SendMessage
   nameWithType: AbstractMessage.SendMessage
 - uid: Notifications.Domain.AbstractMessage._messageSender
   name: _messageSender
-  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.html#Notifications_Domain_AbstractMessage__messageSender
+  href: api/Notifications.Domain/Notifications.Domain.AbstractMessage.yml
   commentId: F:Notifications.Domain.AbstractMessage._messageSender
   fullName: Notifications.Domain.AbstractMessage._messageSender
   nameWithType: AbstractMessage._messageSender
 - uid: Notifications.Domain.EmailMessageSender
   name: EmailMessageSender
-  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.html
+  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.yml
   commentId: T:Notifications.Domain.EmailMessageSender
   fullName: Notifications.Domain.EmailMessageSender
   nameWithType: EmailMessageSender
 - uid: Notifications.Domain.EmailMessageSender.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.html#Notifications_Domain_EmailMessageSender_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.yml
   commentId: M:Notifications.Domain.EmailMessageSender.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.EmailMessageSender.SendMessage(string)
@@ -234,20 +234,20 @@ references:
   nameWithType.vb: EmailMessageSender.SendMessage(String)
 - uid: Notifications.Domain.EmailMessageSender.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.html#Notifications_Domain_EmailMessageSender_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.EmailMessageSender.yml
   commentId: Overload:Notifications.Domain.EmailMessageSender.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.EmailMessageSender.SendMessage
   nameWithType: EmailMessageSender.SendMessage
 - uid: Notifications.Domain.IMessageSender
   name: IMessageSender
-  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.html
+  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.yml
   commentId: T:Notifications.Domain.IMessageSender
   fullName: Notifications.Domain.IMessageSender
   nameWithType: IMessageSender
 - uid: Notifications.Domain.IMessageSender.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.html#Notifications_Domain_IMessageSender_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.yml
   commentId: M:Notifications.Domain.IMessageSender.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.IMessageSender.SendMessage(string)
@@ -256,20 +256,20 @@ references:
   nameWithType.vb: IMessageSender.SendMessage(String)
 - uid: Notifications.Domain.IMessageSender.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.html#Notifications_Domain_IMessageSender_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.IMessageSender.yml
   commentId: Overload:Notifications.Domain.IMessageSender.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.IMessageSender.SendMessage
   nameWithType: IMessageSender.SendMessage
 - uid: Notifications.Domain.LongMessage
   name: LongMessage
-  href: api/Notifications.Domain/Notifications.Domain.LongMessage.html
+  href: api/Notifications.Domain/Notifications.Domain.LongMessage.yml
   commentId: T:Notifications.Domain.LongMessage
   fullName: Notifications.Domain.LongMessage
   nameWithType: LongMessage
 - uid: Notifications.Domain.LongMessage.#ctor(Notifications.Domain.IMessageSender)
   name: LongMessage(IMessageSender)
-  href: api/Notifications.Domain/Notifications.Domain.LongMessage.html#Notifications_Domain_LongMessage__ctor_Notifications_Domain_IMessageSender_
+  href: api/Notifications.Domain/Notifications.Domain.LongMessage.yml
   commentId: M:Notifications.Domain.LongMessage.#ctor(Notifications.Domain.IMessageSender)
   name.vb: New(IMessageSender)
   fullName: Notifications.Domain.LongMessage.LongMessage(Notifications.Domain.IMessageSender)
@@ -278,7 +278,7 @@ references:
   nameWithType.vb: LongMessage.New(IMessageSender)
 - uid: Notifications.Domain.LongMessage.#ctor*
   name: LongMessage
-  href: api/Notifications.Domain/Notifications.Domain.LongMessage.html#Notifications_Domain_LongMessage__ctor_
+  href: api/Notifications.Domain/Notifications.Domain.LongMessage.yml
   commentId: Overload:Notifications.Domain.LongMessage.#ctor
   isSpec: "True"
   name.vb: New
@@ -288,7 +288,7 @@ references:
   nameWithType.vb: LongMessage.New
 - uid: Notifications.Domain.LongMessage.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.LongMessage.html#Notifications_Domain_LongMessage_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.LongMessage.yml
   commentId: M:Notifications.Domain.LongMessage.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.LongMessage.SendMessage(string)
@@ -297,20 +297,20 @@ references:
   nameWithType.vb: LongMessage.SendMessage(String)
 - uid: Notifications.Domain.LongMessage.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.LongMessage.html#Notifications_Domain_LongMessage_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.LongMessage.yml
   commentId: Overload:Notifications.Domain.LongMessage.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.LongMessage.SendMessage
   nameWithType: LongMessage.SendMessage
 - uid: Notifications.Domain.ShortMessage
   name: ShortMessage
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: T:Notifications.Domain.ShortMessage
   fullName: Notifications.Domain.ShortMessage
   nameWithType: ShortMessage
 - uid: Notifications.Domain.ShortMessage.#ctor(Notifications.Domain.IMessageSender)
   name: ShortMessage(IMessageSender)
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html#Notifications_Domain_ShortMessage__ctor_Notifications_Domain_IMessageSender_
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: M:Notifications.Domain.ShortMessage.#ctor(Notifications.Domain.IMessageSender)
   name.vb: New(IMessageSender)
   fullName: Notifications.Domain.ShortMessage.ShortMessage(Notifications.Domain.IMessageSender)
@@ -319,7 +319,7 @@ references:
   nameWithType.vb: ShortMessage.New(IMessageSender)
 - uid: Notifications.Domain.ShortMessage.#ctor*
   name: ShortMessage
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html#Notifications_Domain_ShortMessage__ctor_
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: Overload:Notifications.Domain.ShortMessage.#ctor
   isSpec: "True"
   name.vb: New
@@ -329,13 +329,13 @@ references:
   nameWithType.vb: ShortMessage.New
 - uid: Notifications.Domain.ShortMessage.LARGE_ERROR_MESSAGE
   name: LARGE_ERROR_MESSAGE
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html#Notifications_Domain_ShortMessage_LARGE_ERROR_MESSAGE
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: F:Notifications.Domain.ShortMessage.LARGE_ERROR_MESSAGE
   fullName: Notifications.Domain.ShortMessage.LARGE_ERROR_MESSAGE
   nameWithType: ShortMessage.LARGE_ERROR_MESSAGE
 - uid: Notifications.Domain.ShortMessage.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html#Notifications_Domain_ShortMessage_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: M:Notifications.Domain.ShortMessage.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.ShortMessage.SendMessage(string)
@@ -344,20 +344,20 @@ references:
   nameWithType.vb: ShortMessage.SendMessage(String)
 - uid: Notifications.Domain.ShortMessage.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.html#Notifications_Domain_ShortMessage_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.ShortMessage.yml
   commentId: Overload:Notifications.Domain.ShortMessage.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.ShortMessage.SendMessage
   nameWithType: ShortMessage.SendMessage
 - uid: Notifications.Domain.SmsMessageSender
   name: SmsMessageSender
-  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.html
+  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.yml
   commentId: T:Notifications.Domain.SmsMessageSender
   fullName: Notifications.Domain.SmsMessageSender
   nameWithType: SmsMessageSender
 - uid: Notifications.Domain.SmsMessageSender.SendMessage(System.String)
   name: SendMessage(string)
-  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.html#Notifications_Domain_SmsMessageSender_SendMessage_System_String_
+  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.yml
   commentId: M:Notifications.Domain.SmsMessageSender.SendMessage(System.String)
   name.vb: SendMessage(String)
   fullName: Notifications.Domain.SmsMessageSender.SendMessage(string)
@@ -366,7 +366,7 @@ references:
   nameWithType.vb: SmsMessageSender.SendMessage(String)
 - uid: Notifications.Domain.SmsMessageSender.SendMessage*
   name: SendMessage
-  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.html#Notifications_Domain_SmsMessageSender_SendMessage_
+  href: api/Notifications.Domain/Notifications.Domain.SmsMessageSender.yml
   commentId: Overload:Notifications.Domain.SmsMessageSender.SendMessage
   isSpec: "True"
   fullName: Notifications.Domain.SmsMessageSender.SendMessage
