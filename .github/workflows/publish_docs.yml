@@ -27,10 +27,10 @@ jobs:
           dotnet build Notifications/Notifications.sln
 
       - name: Generate DocFX metadata
-        run: docfx metadata docfx.json
+        run: docfx metadata docfx.json --force
 
       - name: Build DocFX site
-        run: docfx build docfx.json
+        run: docfx build docfx.json --force
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
