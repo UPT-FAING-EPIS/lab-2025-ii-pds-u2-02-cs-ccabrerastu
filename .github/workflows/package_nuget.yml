@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write  # ✓ Ya lo tienes configurado correctamente
+      packages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-
+        with:
+          fetch-depth: 0  # Necesario para SonarCloud
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -83,12 +83,12 @@ jobs:
         run: |
           dotnet nuget push CustomerApp/CustomerApp.Domain/bin/Release/*.nupkg \
             --skip-duplicate \
-            --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json \
+            --source "github" \
             --api-key ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push nuget package to GitHub Packages (Notifications.Domain)
         run: |
           dotnet nuget push Notifications/Notifications.Domain/bin/Release/*.nupkg \
             --skip-duplicate \
-            --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json \
+            --source "github" \
             --api-key ${{ secrets.GITHUB_TOKEN }}
