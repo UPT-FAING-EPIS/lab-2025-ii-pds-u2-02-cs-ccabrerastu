@@ -86,7 +86,7 @@
   },
   "index.html": {
     "href": "index.html",
-    "title": "This is the HOMEPAGE. | Customer & Notifications App",
-    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+    "title": "Bienvenido a la documentación del repositorio | Customer & Notifications App",
+    "summary": "Bienvenido a la documentación del repositorio Este sitio contiene la documentación técnica y de pruebas de los proyectos: CustomerApp: Gestión y registro de clientes. Notifications: Envío de mensajes por Email y SMS. CustomerApp Diagrama de Clases CustomerApp API CustomerApp Notifications Diagrama de Clases Notifications API Notifications"
   }
 }
