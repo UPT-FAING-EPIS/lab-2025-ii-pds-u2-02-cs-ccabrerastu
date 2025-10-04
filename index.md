@@ -6,7 +6,7 @@ _layout: landing
 
 Este sitio contiene la documentación técnica y de pruebas de los proyectos:
 
-- **CustomerApp**: Gestión y registro de clientes.
+- **CustomerApp**: Gestión y registro de clientesss
 - **Notifications**: Envío de mensajes por Email y SMS
 
 ## CustomerApp
