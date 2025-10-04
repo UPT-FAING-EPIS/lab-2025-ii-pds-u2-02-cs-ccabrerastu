@@ -12,9 +12,9 @@ Este sitio contiene la documentación técnica y de pruebas de los proyectos:
 ## CustomerApp
 
 - [Diagrama de Clases CustomerApp](CustomerApp/disenio.md)
-- [API CustomerApp](api/CustomerApp.Domain/CustomerApp.Domain.html)
+- [API CustomerApp](_site/api/CustomerApp.Domain/CustomerApp.Domain.html)
 
 ## Notifications
 
 - [Diagrama de Clases Notifications](Notifications/disenio.md)
-- [API Notifications](api/Notifications.Domain/Notifications.Domain.html)
+- [API Notifications](_site/api/Notifications.Domain/Notifications.Domain.html)
