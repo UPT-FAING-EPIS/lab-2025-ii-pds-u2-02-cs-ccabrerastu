@@ -26,11 +26,15 @@ jobs:
           dotnet build CustomerApp/CustomerApp.sln
           dotnet build Notifications/Notifications.sln
 
+      # 🧹 Limpieza de salidas previas antes de generar nueva documentación
+      - name: Clean previous DocFX outputs
+        run: rm -rf _site api
+
       - name: Generate DocFX metadata
-        run: docfx metadata docfx.json --force
+        run: docfx metadata docfx.json
 
       - name: Build DocFX site
-        run: docfx build docfx.json --force
+        run: docfx build docfx.json
 
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
